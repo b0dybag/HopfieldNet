@@ -22,30 +22,30 @@ def toBinary(someString):
     tempData = ' '.join(format(ord(x), 'b') for x in someString)
     return tempData
 
-def fromBin(lol):
-    for k in range(len(lol)):
-        if lol[k]==-1: lol[k]="0"
-        if lol[k]==1: lol[k]="1"
-    lol = toString(lol)
-    #print(lol)
-    lol = lol.replace("0.0", "0")
-    lol = lol.replace("1.0", "1")
-    lol = lol.replace(" ", "")
-    #print(lol)
-    lol = list(lol)
+def fromBin(bindata):
+    for k in range(len(bindata)):
+        if bindata[k]==-1: bindata[k]="0"
+        if bindata[k]==1: bindata[k]="1"
+    bindata = toString(bindata)
+    #print(bindata)
+    bindata = bindata.replace("0.0", "0")
+    bindata = bindata.replace("1.0", "1")
+    bindata = bindata.replace(" ", "")
+    #print(bindata)
+    bindata = list(bindata)
     a=0
-    tmp = lol[a]
+    tmp = bindata[a]
     while tmp!="1":
-        lol[a]=""
+        bindata[a]=""
         a=a+1
-        tmp = lol[a]
-    lol = "".join(lol)
-    #print(lol)
+        tmp = bindata[a]
+    bindata = "".join(bindata)
+    #print(bindata)
     n=6
-    lol = [lol[i:i+n] for i in range(0, len(lol), n)]
+    bindata = [bindata[i:i+n] for i in range(0, len(bindata), n)]
     str1 = ""
-    for j in range(len(lol)):
-        n = text_from_bits(lol[j])
+    for j in range(len(bindata)):
+        n = text_from_bits(bindata[j])
         str1=str1+n
     return str1
 
